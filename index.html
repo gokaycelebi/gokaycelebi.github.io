@@ -26,6 +26,7 @@
   --accent:#8E9DFF; --accent-soft:#232947; --pencil:#FF6E5E; color-scheme:dark}
 
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;padding-inline:20px;padding-block:0}
 .wrap{max-width:var(--col);margin-inline:auto}
 a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}
@@ -200,7 +201,14 @@ footer{font-size:13px;color:var(--muted);padding-block:0 40px}
   .cols,.books{grid-template-columns:minmax(0,1fr)}
   .process{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+.tabs,.sub,.piece{scroll-margin-top:calc(env(safe-area-inset-top,0px) + 68px)}
 @media (max-width:620px){
+  .tabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-inline:-20px;padding-inline:20px}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{flex:0 0 auto}
+  .sub{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .sub::-webkit-scrollbar{display:none}
+  .sub button{flex:0 0 auto}
   nav.top ul{display:none}
   .work{grid-template-columns:minmax(0,1fr)}
   .hero{padding-block:48px 40px}
@@ -675,11 +683,19 @@ footer{font-size:13px;color:var(--muted);padding-block:0 40px}
 <script>
 (function(){
   const tabs=[...document.querySelectorAll('.tab')];
+  const small=()=>window.matchMedia('(max-width:860px)').matches;
+  const smooth=()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';
+  function reveal(tab){
+    try{tab.scrollIntoView({block:'nearest',inline:'center',behavior:smooth()});}catch(e){}
+    if(!small())return;
+    const strip=document.querySelector('.tabs');
+    setTimeout(()=>strip.scrollIntoView({block:'start',behavior:smooth()}),60);
+  }
   function show(id){
     tabs.forEach(t=>{const on=t.id==='t-'+id;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;document.getElementById(t.getAttribute('aria-controls')).hidden=!on;});
   }
   tabs.forEach((t,i)=>{
-    t.addEventListener('click',()=>show(t.id.slice(2)));
+    t.addEventListener('click',()=>{show(t.id.slice(2));reveal(t);});
     t.addEventListener('keydown',e=>{
       if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;
       const n=tabs[(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length];n.focus();show(n.id.slice(2));
@@ -687,14 +703,14 @@ footer{font-size:13px;color:var(--muted);padding-block:0 40px}
   });
   document.querySelectorAll('.sub').forEach(g=>{
     const btns=[...g.querySelectorAll('button')];const pieces=[...g.parentElement.querySelectorAll(':scope > .piece')];
-    btns.forEach((b,i)=>b.addEventListener('click',()=>{btns.forEach((x,j)=>x.setAttribute('aria-pressed',i===j));pieces.forEach((p,j)=>p.hidden=i!==j);}));
+    btns.forEach((b,i)=>b.addEventListener('click',()=>{btns.forEach((x,j)=>x.setAttribute('aria-pressed',i===j));pieces.forEach((p,j)=>p.hidden=i!==j);try{b.scrollIntoView({block:'nearest',inline:'center',behavior:smooth()});}catch(e){}if(small())setTimeout(()=>(g.closest('.panel').previousElementSibling&&document.querySelector('.tabs')).scrollIntoView({block:'start',behavior:smooth()}),60);}));
   });
   document.querySelectorAll('.lock').forEach(l=>{
     const ts=[...l.querySelectorAll('.nt')].map(e=>e.textContent.length),bs=[...l.querySelectorAll('.nb')].map(e=>e.textContent.length);
     const out=l.parentElement.querySelector('.counts');
     if(out)out.textContent='Titles '+Math.max(...ts)+' characters max · Bodies '+Math.max(...bs)+' characters max';
   });
-  document.querySelectorAll('[data-tab]').forEach(a=>a.addEventListener('click',()=>show(a.dataset.tab)));
+  document.querySelectorAll('[data-tab]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();show(a.dataset.tab);const tb=document.getElementById('t-'+a.dataset.tab);try{tb.scrollIntoView({block:'nearest',inline:'center'});}catch(_){}document.querySelector('.tabs').scrollIntoView({block:'start',behavior:smooth()});}));
   document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{
     const el=document.getElementById(b.dataset.copy);const txt=el.textContent;
     const ok=()=>{b.textContent='Copied';b.classList.add('done');setTimeout(()=>{b.textContent='Copy';b.classList.remove('done')},1600)};
