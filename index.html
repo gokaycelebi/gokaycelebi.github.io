@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Gökay Çelebi – copywriter and content lead in Hamburg. Landing pages, push notifications, CRM emails, help centers and creative writing.">
+<title>Gökay Çelebi Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an editor's proof sheet — a narrow reading column with a left "margin" for labels, red-pencil edits as the one flourish */
+:root{
+  --paper:#F2F3EF; --sheet:#FBFBF8; --ink:#1A1D26; --muted:#5B606C; --rule:#D9DBD3;
+  --accent:#2B44D9; --accent-soft:#E3E7FB; --pencil:#C8392B;
+  --display:"Young Serif", Georgia, "Times New Roman", serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --col:1080px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#12141A; --sheet:#1A1D25; --ink:#E8E9ED; --muted:#9EA3AF; --rule:#2C303A;
+  --accent:#8E9DFF; --accent-soft:#232947; --pencil:#FF6E5E; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#12141A; --sheet:#1A1D25; --ink:#E8E9ED; --muted:#9EA3AF; --rule:#2C303A;
+  --accent:#8E9DFF; --accent-soft:#232947; --pencil:#FF6E5E; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;padding-inline:20px;padding-block:0}
+.wrap{max-width:var(--col);margin-inline:auto}
+a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.15;margin:0}
+p{margin:0}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* nav */
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);margin-inline:-20px;padding-inline:20px}
+nav.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px;flex-wrap:wrap}
+.mark{font-family:var(--display);font-size:19px;color:var(--ink);text-decoration:none}
+nav.top ul{list-style:none;display:flex;gap:22px;margin:0;padding:0;flex-wrap:wrap}
+nav.top ul a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500}
+nav.top ul a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding-block:72px 56px;display:grid;grid-template-columns:180px minmax(0,1fr);gap:32px}
+.hero h1{font-size:clamp(40px,6.4vw,78px);letter-spacing:-.01em;line-height:1.35}
+.edit{position:relative;white-space:nowrap}
+.edit s{text-decoration:none;position:relative;color:var(--muted)}
+.edit s::after{content:"";position:absolute;left:-3%;right:-3%;top:54%;height:.08em;background:var(--pencil);transform:rotate(-3deg);transform-origin:left;animation:strike .6s .5s ease-out both}
+.edit ins{text-decoration:none;font-family:var(--display);color:var(--pencil);font-size:.5em;position:absolute;left:4%;top:-.62em;transform:rotate(-4deg);white-space:nowrap;animation:fade .4s 1s both}
+@keyframes strike{from{transform:rotate(-3deg) scaleX(0)}to{transform:rotate(-3deg) scaleX(1)}}
+@keyframes fade{from{opacity:.0001}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.edit s::after,.edit ins{animation:none}}
+.hero .lede{margin-top:28px;max-width:60ch;font-size:19px;color:var(--muted)}
+.hero .lede strong{color:var(--ink);font-weight:600}
+.facts{margin-top:32px;display:flex;flex-wrap:wrap;gap:10px}
+.chip{font-family:var(--mono);font-size:12.5px;border:1px solid var(--rule);background:var(--sheet);padding:6px 11px;border-radius:999px;color:var(--ink)}
+.cta{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 15px var(--body);padding:12px 18px;border-radius:6px;text-decoration:none;border:1px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn:hover{transform:translateY(-1px)}
+
+/* sections */
+section.block{border-top:1px solid var(--rule);padding-block:64px;display:grid;grid-template-columns:180px minmax(0,1fr);gap:32px}
+section.block > .side{padding-top:6px}
+section.block > .side .label{position:sticky;top:80px}
+.section-title{font-size:clamp(28px,3.4vw,40px);margin-bottom:12px}
+.intro{color:var(--muted);max-width:62ch;margin-bottom:36px}
+
+/* work grid */
+.work{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.case{background:var(--sheet);padding:28px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.case .kind{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.case h3{font-size:24px}
+.case p{color:var(--muted);font-size:15.5px}
+.case ul{margin:0;padding-left:18px;color:var(--muted);font-size:15px}
+.case .links{margin-top:auto;padding-top:8px;display:flex;gap:16px;flex-wrap:wrap;font-size:14.5px;font-weight:500}
+.case.wide{grid-column:1 / -1}
+.tag{font-family:var(--mono);font-size:11.5px;color:var(--accent);background:var(--accent-soft);padding:3px 8px;border-radius:4px}
+
+/* samples */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:-1px;position:relative;z-index:1}
+.tab{white-space:nowrap;font:500 14px var(--body);padding:10px 14px;border:1px solid var(--rule);border-bottom-color:transparent;background:transparent;color:var(--muted);border-radius:6px 6px 0 0;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--sheet);color:var(--ink);border-color:var(--rule);border-bottom-color:var(--sheet)}
+.panel{background:var(--sheet);border:1px solid var(--rule);border-radius:0 6px 6px 6px}
+.piece{display:grid;grid-template-columns:minmax(0,1fr) 230px}
+.sub{display:flex;flex-wrap:wrap;gap:6px;padding:14px 20px;border-bottom:1px solid var(--rule)}
+.sub button{font:500 13px var(--body);padding:6px 12px;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--muted);cursor:pointer}
+.sub button[aria-pressed="true"]{background:var(--ink);color:var(--sheet);border-color:var(--ink)}
+/* browser mock for landing pages */
+.browser{border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:var(--paper)}
+.browser .bar{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid var(--rule);background:var(--sheet)}
+.browser .bar i{width:9px;height:9px;border-radius:50%;background:var(--rule)}
+.browser .bar span{margin-left:10px;font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--paper);padding:3px 10px;border-radius:4px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lp{padding:28px;display:grid;gap:26px}
+.lp h5{font-family:var(--display);font-weight:400;font-size:clamp(26px,3.2vw,36px);line-height:1.15;margin:8px 0 10px;text-wrap:balance}
+.lp h6{font-family:var(--display);font-weight:400;font-size:22px;margin:0 0 8px}
+.lp p{font-size:15.5px;color:var(--muted);max-width:56ch;margin-bottom:0}
+.lp-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:16px}
+.lp-cta .mailbtn{margin:0}
+.ghost{font-weight:600;font-size:15px;color:var(--accent);padding:11px 4px}
+.lp-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.lp-3 div{background:var(--sheet);border:1px solid var(--rule);border-radius:8px;padding:14px;display:grid;gap:4px;min-width:0}
+.lp-3 b{font-size:15px}.lp-3 span{font-size:14px;color:var(--muted);line-height:1.45}
+.lp-steps ol{margin:8px 0 0;padding-left:20px;font-size:15px}
+.lp-faq p{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--rule);padding:9px 0;color:var(--ink);font-size:15px;max-width:none}
+.lp-faq p em{font-style:normal;color:var(--accent)}
+.lp-final{background:var(--accent-soft);border-radius:8px;padding:20px}
+.lp-final .mailbtn{margin:14px 0 0}
+/* lock screen for push */
+.lock{border-radius:26px;padding:22px 16px 26px;background:linear-gradient(160deg,var(--accent-soft),var(--paper) 70%);border:1px solid var(--rule);max-width:400px;display:grid;gap:10px}
+.lock-time{font-family:var(--display);font-size:46px;text-align:center;line-height:1;margin-bottom:12px}
+.notif{display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;background:color-mix(in srgb,var(--sheet) 88%,transparent);border:1px solid var(--rule);border-radius:16px;padding:11px 13px;box-shadow:0 4px 14px rgba(0,0,0,.06)}
+.ic{width:34px;height:34px;border-radius:8px;background:var(--accent);color:var(--sheet);display:grid;place-items:center;font-weight:700;font-size:15px}
+.ic.m{background:var(--pencil)}
+.nh{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+.nh b{color:var(--ink);font-weight:600;letter-spacing:.02em;text-transform:uppercase;font-size:11px}
+.notif .nt{font-weight:600;font-size:14.5px;margin:2px 0 1px}
+.notif .nb{font-size:14px;line-height:1.4;margin:0;color:var(--ink)}
+.counts{margin-top:14px;font-family:var(--mono)}
+/* before / after */
+.ba{display:grid;border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+.ba-h,.ba-r{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:6px 20px;padding:12px 16px}
+.ba-h{background:var(--paper)}
+.ba-r{border-top:1px solid var(--rule);align-items:start}
+.ba-r .ctx{grid-column:1 / -1;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.ba-r s{color:var(--muted);text-decoration-color:var(--pencil);font-size:15px}
+.ba-r p{margin:0;font-size:15px;font-weight:500}
+/* ads */
+.ads{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.ad{border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:var(--paper);display:flex;flex-direction:column;min-width:0}
+.ad .spon{font-size:11.5px;color:var(--muted);padding:10px 12px 0;font-family:var(--mono)}
+.ad > p{font-size:14px;padding:6px 12px 10px;margin:0;line-height:1.45}
+.ad-img{margin-top:auto;aspect-ratio:1/1;max-width:100%;display:grid;place-items:center;text-align:center;padding:12px;font-family:var(--display);font-size:22px;line-height:1.15;color:var(--accent);background:repeating-linear-gradient(135deg,var(--accent-soft) 0 12px,var(--sheet) 12px 24px)}
+.ad-foot{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;border-top:1px solid var(--rule)}
+.ad-foot b{font-size:13.5px;min-width:0}
+.ad-foot span{font-size:12.5px;font-weight:600;border:1px solid var(--rule);border-radius:4px;padding:4px 9px;background:var(--sheet)}
+.doc{padding:32px 36px;min-width:0;border-right:1px solid var(--rule)}
+.notes{padding:28px 22px;display:flex;flex-direction:column;gap:18px;font-size:14px;color:var(--muted)}
+.notes .n{border-left:2px solid var(--pencil);padding-left:12px}
+.notes .n b{display:block;color:var(--pencil);font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.meta{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px;font-size:14px;padding-bottom:18px;margin-bottom:22px;border-bottom:1px dashed var(--rule)}
+.meta dt{font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:2px}
+.meta dd{margin:0;font-weight:600}
+.doc h4{font-family:var(--display);font-weight:400;font-size:24px;margin:0 0 14px;line-height:1.25}
+.doc p{margin-bottom:14px;max-width:62ch;font-size:16px}
+.doc ol,.doc ul{margin:0 0 14px;padding-left:22px;max-width:60ch;font-size:16px}
+.doc li{margin-bottom:6px}
+.doc .mailbtn{display:inline-block;background:var(--accent);color:var(--sheet);font-weight:600;font-size:15px;padding:11px 20px;border-radius:6px;margin:4px 0 16px}
+.doc .tip{background:var(--accent-soft);border-radius:6px;padding:12px 16px;font-size:15px;margin-bottom:14px;max-width:62ch}
+.doc .small{font-size:13.5px;color:var(--muted)}
+.disclaimer{margin-top:14px;font-size:13px;color:var(--muted)}
+
+/* experience */
+.timeline{display:grid;gap:0}
+.role{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 24px;padding-block:22px;border-bottom:1px solid var(--rule)}
+.role:first-child{padding-top:0}
+.role h3{font-size:22px}
+.role .where{font-family:var(--mono);font-size:13px;color:var(--muted);text-align:right}
+.role p{grid-column:1 / -1;color:var(--muted);font-size:15.5px;max-width:66ch}
+.steps{display:flex;gap:6px;flex-wrap:wrap;grid-column:1 / -1}
+.steps span{font-size:13px;font-family:var(--mono);color:var(--ink)}
+.steps span+span::before{content:"→ ";color:var(--muted)}
+
+/* skills + process */
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.cols h3{font-size:20px;margin-bottom:10px}
+.cols ul{list-style:none;padding:0;margin:0;color:var(--muted);font-size:15.5px;display:grid;gap:6px}
+.process{list-style:none;padding:0;margin:40px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;counter-reset:s}
+.process li{counter-increment:s;border-top:2px solid var(--ink);padding-top:14px;font-size:15px;color:var(--muted)}
+.process li::before{content:"0" counter(s);font-family:var(--mono);font-size:12px;color:var(--pencil);display:block;margin-bottom:6px}
+.process b{display:block;color:var(--ink);font-family:var(--display);font-weight:400;font-size:19px;margin-bottom:4px}
+
+/* books */
+.books{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.book{border:1px solid var(--rule);background:var(--sheet);padding:22px 20px 20px;border-radius:2px 8px 8px 2px;box-shadow:inset 6px 0 0 var(--ink);min-width:0}
+.book h3{font-size:21px;margin:8px 0 6px}
+.book p{font-size:14.5px;color:var(--muted)}
+.extras{margin-top:28px;display:flex;flex-wrap:wrap;gap:20px 32px;font-size:15px}
+
+/* contact */
+.contact{border-top:1px solid var(--rule);padding-block:72px 96px}
+.contact h2{font-size:clamp(34px,5vw,58px);max-width:16ch}
+.contact .rows{margin-top:32px;display:grid;gap:12px;max-width:520px}
+.crow{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--rule);background:var(--sheet);padding:14px 16px;border-radius:6px;flex-wrap:wrap}
+.crow span{font-family:var(--mono);font-size:15px;user-select:all;word-break:break-all}
+.copy{font:500 13px var(--body);border:1px solid var(--rule);background:transparent;color:var(--ink);padding:6px 12px;border-radius:4px;cursor:pointer}
+.copy.done{color:var(--accent);border-color:var(--accent)}
+footer{font-size:13px;color:var(--muted);padding-block:0 40px}
+
+@media (max-width:860px){
+  .hero,section.block{grid-template-columns:minmax(0,1fr);gap:14px}
+  section.block > .side .label{position:static}
+  .piece{grid-template-columns:minmax(0,1fr)}
+  .lp-3,.ads{grid-template-columns:minmax(0,1fr)}
+  .lp{padding:20px}
+  .doc{border-right:0;border-bottom:1px solid var(--rule);padding:24px 20px}
+  .cols,.books{grid-template-columns:minmax(0,1fr)}
+  .process{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:620px){
+  nav.top ul{display:none}
+  .work{grid-template-columns:minmax(0,1fr)}
+  .hero{padding-block:48px 40px}
+  .role{grid-template-columns:minmax(0,1fr)}
+  .role .where{text-align:left}
+  .process{grid-template-columns:minmax(0,1fr)}
+  .edit{white-space:normal}
+}
+</style>
+</head>
+<body>
+
+
+<nav class="top"><div class="wrap">
+  <a class="mark" href="#top">Gökay Çelebi</a>
+  <ul>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#samples">Samples</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#writing">Writing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div></nav>
+
+<div class="wrap" id="top">
+
+<header class="hero">
+  <div class="label">Copywriter &amp;<br>Content Lead</div>
+  <div>
+    <h1>I write words that <span class="edit"><s>fill space</s><ins>do the work</ins></span>.</h1>
+    <p class="lede">I'm Gökay, a content creative who grew up believing words could do almost anything. For <strong>10+ years</strong> I've written for global brands at the point where storytelling meets strategy: <strong>landing pages, push notifications, lifecycle emails, help centers</strong> and campaigns that work across markets.</p>
+    <div class="facts">
+      <span class="chip">Hamburg, DE</span>
+      <span class="chip">English · Turkish · German B1</span>
+      <span class="chip">E-commerce · Travel tech</span>
+      <span class="chip">Open to remote &amp; on-site</span>
+    </div>
+    <div class="cta">
+      <a class="btn primary" href="#samples">Read writing samples</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<section class="block" id="work">
+  <div class="side"><div class="label">Selected work</div></div>
+  <div>
+    <h2 class="section-title">Words people rely on</h2>
+    <p class="intro">Most of my writing does a job: it answers a question before a ticket gets opened, nudges a customer to finish setup, or explains a program clearly enough that people join it. Live examples below.</p>
+
+    <div class="work">
+      <article class="case">
+        <div class="kind"><span class="label">Roamless · Travel eSIM</span><span class="tag">Help center</span></div>
+        <h3>Help center &amp; FAQ</h3>
+        <p>Wrote the customer-facing knowledge base for a global eSIM app: how the product works, device setup guides, billing questions and troubleshooting.</p>
+        <ul>
+          <li>Product explainers, setup guides, FAQs, troubleshooting</li>
+          <li>Plain, step-by-step language for stressed travellers</li>
+          <li>Structured to cut repeat support requests</li>
+        </ul>
+        <div class="links"><a href="https://help.roamless.com/en" target="_blank" rel="noopener">help.roamless.com ↗</a></div>
+      </article>
+
+      <article class="case">
+        <div class="kind"><span class="label">Roamless · Travel eSIM</span><span class="tag">CRM · Email · Push</span></div>
+        <h3>Lifecycle &amp; CRM messaging</h3>
+        <p>Wrote the email and push journeys that follow a customer from sign-up to their next trip: onboarding, activation, balance reminders and re-engagement.</p>
+        <ul>
+          <li>Subject lines and preheaders built for open rates</li>
+          <li>One clear action per email</li>
+          <li>Tone consistent with in-app and help content</li>
+        </ul>
+        <div class="links"><a href="#samples" data-tab="push">See push &amp; email samples ↓</a></div>
+      </article>
+
+      <article class="case">
+        <div class="kind"><span class="label">Modanisa · Global fashion e-commerce</span><span class="tag">Programs</span></div>
+        <h3>MyModanisa loyalty &amp; influencer programs</h3>
+        <p>Wrote the landing pages and program copy that explain how members earn and use benefits, and how creators apply to the influencer program.</p>
+        <div class="links"><a href="https://www.modanisa.com/" target="_blank" rel="noopener">modanisa.com ↗</a></div>
+      </article>
+
+      <article class="case">
+        <div class="kind"><span class="label">Modanisa · Global fashion e-commerce</span><span class="tag">Support content</span></div>
+        <h3>Customer FAQ</h3>
+        <p>Wrote and maintained the FAQ for an international store shipping to many countries: orders, delivery, returns, payments and account questions.</p>
+        <div class="links"><a href="https://www.modanisa.com/" target="_blank" rel="noopener">modanisa.com ↗</a></div>
+      </article>
+
+      <article class="case wide">
+        <div class="kind"><span class="label">Roamless &amp; Modanisa</span><span class="tag">Landing pages · In-app · Ads</span></div>
+        <h3>Landing pages, in-app copy and performance ads</h3>
+        <p>Product and campaign landing pages, in-app banners, error messages and button text, plus paid social ad sets written in several angles for A/B testing.</p>
+        <div class="links"><a href="#samples" data-tab="landing">See landing page samples ↓</a><a href="#samples" data-tab="ux">See UX microcopy ↓</a><a href="#samples" data-tab="ads">See ad copy ↓</a></div>
+      </article>
+
+      <article class="case wide">
+        <div class="kind"><span class="label">Modanisa &amp; freelance</span><span class="tag">Campaigns · Social · Video</span></div>
+        <h3>Campaign, mailing, short-form and video content</h3>
+        <p>Seasonal campaign concepts and copy, newsletter and promotional mailings, social and short-form scripts, and video content from idea to edit. On my own channel I script and produce short videos as <a href="https://www.tiktok.com/@gray_cap" target="_blank" rel="noopener">@gray_cap on TikTok ↗</a>.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="samples">
+  <div class="side"><div class="label">Writing samples</div></div>
+  <div>
+    <h2 class="section-title">Read the copy</h2>
+    <p class="intro">Copy across every channel a customer touches: landing pages, push notifications, email, in-app messages, help content and ads. Each piece comes with editor's notes on why it's written that way.</p>
+
+    <div class="tabs" role="tablist" aria-label="Writing samples by channel">
+      <button class="tab" role="tab" id="t-landing" aria-controls="p-landing" aria-selected="true">Landing pages</button>
+      <button class="tab" role="tab" id="t-push" aria-controls="p-push" aria-selected="false">Push notifications</button>
+      <button class="tab" role="tab" id="t-email" aria-controls="p-email" aria-selected="false">Email</button>
+      <button class="tab" role="tab" id="t-ux" aria-controls="p-ux" aria-selected="false">In-app &amp; UX</button>
+      <button class="tab" role="tab" id="t-help" aria-controls="p-help" aria-selected="false">Help center</button>
+      <button class="tab" role="tab" id="t-ads" aria-controls="p-ads" aria-selected="false">Ads &amp; social</button>
+    </div>
+
+    <!-- LANDING PAGES -->
+    <div class="panel" role="tabpanel" id="p-landing" aria-labelledby="t-landing">
+      <div class="sub" role="group" aria-label="Landing page samples">
+        <button aria-pressed="true">Product launch</button><button aria-pressed="false">Creator program</button><button aria-pressed="false">Loyalty program</button>
+      </div>
+
+      <div class="piece">
+        <div class="doc">
+          <div class="browser">
+            <div class="bar"><i></i><i></i><i></i><span>roamless.com/esim</span></div>
+            <div class="lp">
+              <div class="lp-hero">
+                <span class="label">Travel eSIM</span>
+                <h5>Land connected. Anywhere.</h5>
+                <p>One eSIM for all your trips abroad. No SIM swaps, no surprise roaming bills, no hunting for airport Wi-Fi.</p>
+                <div class="lp-cta"><span class="mailbtn">Get the app</span><span class="ghost">See local rates</span></div>
+              </div>
+              <div class="lp-3">
+                <div><b>One eSIM, many countries</b><span>Install it once and use it across destinations. No new SIM for every border.</span></div>
+                <div><b>Pay for what you use</b><span>Choose pay-as-you-go credit or a fixed data plan. Your balance is always in the app.</span></div>
+                <div><b>Ready before you fly</b><span>Set up from your sofa in a few minutes. Switch it on when you land.</span></div>
+              </div>
+              <div class="lp-steps">
+                <span class="label">How it works</span>
+                <ol><li>Download the app and create your account</li><li>Install your eSIM on Wi-Fi at home</li><li>Turn it on when you land and you're online</li></ol>
+              </div>
+              <div class="lp-faq">
+                <span class="label">Questions travellers ask</span>
+                <p>Does my phone support eSIM? <em>+</em></p>
+                <p>Can I keep my regular number for calls and texts? <em>+</em></p>
+                <p>What happens if my balance runs out? <em>+</em></p>
+              </div>
+              <div class="lp-final"><h6>Your next trip starts online.</h6><span class="mailbtn">Get the app</span></div>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          <div class="n"><b>Hero</b>Four words answer "what does this do for me?" The sub line names the three pains it removes.</div>
+          <div class="n"><b>Benefits</b>The three cards mirror the top questions support gets, so the page answers them before they're asked.</div>
+          <div class="n"><b>Steps</b>A three-step setup makes a technical product feel easy.</div>
+          <div class="n"><b>FAQ on page</b>Handles last-minute doubts right before the final call to action.</div>
+        </aside>
+      </div>
+
+      <div class="piece" hidden>
+        <div class="doc">
+          <div class="browser">
+            <div class="bar"><i></i><i></i><i></i><span>modanisa.com/influencer</span></div>
+            <div class="lp">
+              <div class="lp-hero">
+                <span class="label">Creator program</span>
+                <h5>Your style. Your audience. Our new collections.</h5>
+                <p>Join the Modanisa creator program to get early access to new arrivals, a personal discount code for your followers, and a team that helps you plan your content.</p>
+                <div class="lp-cta"><span class="mailbtn">Apply to join</span></div>
+              </div>
+              <div class="lp-3">
+                <div><b>First look</b><span>Style new collections before they go live.</span></div>
+                <div><b>Your own code</b><span>Give your followers a discount that's yours alone.</span></div>
+                <div><b>Real support</b><span>Briefs, content ideas and a contact who answers.</span></div>
+              </div>
+              <div class="lp-steps">
+                <span class="label">How to apply</span>
+                <ol><li>Fill in a short form with your social profiles</li><li>Our team reviews your content and audience</li><li>We get in touch to plan your first collaboration</li></ol>
+              </div>
+              <div class="lp-final"><h6>Who we're looking for</h6><p>Creators who share modest fashion with care, in any language, of any size. We value an engaged community more than a big follower count.</p><span class="mailbtn">Apply to join</span></div>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          <div class="n"><b>Audience</b>Talks to creators as partners. "Our new collections" puts the brand second.</div>
+          <div class="n"><b>Inclusion</b>"Any size" lowers the bar for smaller creators, who often have the most engaged followers.</div>
+          <div class="n"><b>Expectations</b>The application steps say what happens next, which reduces "did they get my form?" emails.</div>
+        </aside>
+      </div>
+
+      <div class="piece" hidden>
+        <div class="doc">
+          <dl class="meta"><dt>Type</dt><dd>Loyalty program landing page</dd><dt>Reader</dt><dd>A returning customer, not yet a member</dd></dl>
+          <h4>Shop as usual. Get more back.</h4>
+          <p>Join the program for free and earn points on every order. The more you shop, the more your membership gives you.</p>
+          <ul>
+            <li><b>Earn</b> points on every purchase</li>
+            <li><b>Unlock</b> member-only offers and early sale access</li>
+            <li><b>Move up</b> a level and enjoy extra perks like free shipping</li>
+          </ul>
+          <span class="mailbtn">Join for free</span>
+          <p class="small">Already a member? Sign in to see your points.</p>
+        </div>
+        <aside class="notes">
+          <div class="n"><b>No new habit</b>"Shop as usual" tells people they don't have to do anything extra.</div>
+          <div class="n"><b>Verbs first</b>Earn, unlock, move up: each benefit leads with what the member does.</div>
+          <div class="n"><b>Low barrier</b>"Free" sits on the button, where the decision happens.</div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- PUSH -->
+    <div class="panel" role="tabpanel" id="p-push" aria-labelledby="t-push" hidden>
+      <div class="sub" role="group" aria-label="Push notification samples">
+        <button aria-pressed="true">Travel app</button><button aria-pressed="false">Fashion e-commerce</button>
+      </div>
+
+      <div class="piece">
+        <div class="doc">
+          <div class="lock">
+            <div class="lock-time">09:41</div>
+            <div class="notif"><span class="ic">R</span><div><div class="nh"><b>Roamless</b><span>now</span></div><p class="nt">Welcome to Portugal</p><p class="nb">You're connected. If maps won't load, turn on data roaming in Settings.</p></div></div>
+            <div class="notif"><span class="ic">R</span><div><div class="nh"><b>Roamless</b><span>2h ago</span></div><p class="nt">Your balance is below €2</p><p class="nb">Top up now to stay online for the rest of your trip.</p></div></div>
+            <div class="notif"><span class="ic">R</span><div><div class="nh"><b>Roamless</b><span>Yesterday</span></div><p class="nt">Flying tomorrow?</p><p class="nb">Install your eSIM on Wi-Fi tonight and you'll land connected.</p></div></div>
+          </div>
+          <p class="counts small"></p>
+        </div>
+        <aside class="notes">
+          <div class="n"><b>Trigger</b>Each push answers a real moment: landing, low balance, the night before a flight.</div>
+          <div class="n"><b>Fits the screen</b>Short titles and bodies, so the full message shows on the lock screen without being cut.</div>
+          <div class="n"><b>Useful first</b>The landing push solves the most common first problem before it becomes a ticket.</div>
+        </aside>
+      </div>
+
+      <div class="piece" hidden>
+        <div class="doc">
+          <div class="lock">
+            <div class="lock-time">19:12</div>
+            <div class="notif"><span class="ic m">M</span><div><div class="nh"><b>Modanisa</b><span>now</span></div><p class="nt">Still thinking it over?</p><p class="nb">The satin abaya in your bag is selling fast. Your size is still here.</p></div></div>
+            <div class="notif"><span class="ic m">M</span><div><div class="nh"><b>Modanisa</b><span>3h ago</span></div><p class="nt">Prices dropped on your wishlist</p><p class="nb">3 items you saved are now up to 30% off. Ends Sunday.</p></div></div>
+            <div class="notif"><span class="ic m">M</span><div><div class="nh"><b>Modanisa</b><span>Mon</span></div><p class="nt">It's back in your size</p><p class="nb">The linen shirt dress you wanted is in stock again. Last time it sold out in two days.</p></div></div>
+          </div>
+          <p class="counts small"></p>
+        </div>
+        <aside class="notes">
+          <div class="n"><b>Personal</b>Every push is about something the customer already chose: their bag, their wishlist, their size.</div>
+          <div class="n"><b>Urgency, honestly</b>"Selling fast" and "ends Sunday" give a reason to act now without shouting.</div>
+          <div class="n"><b>Localised</b>Written to translate cleanly for different markets, with no wordplay that breaks in other languages.</div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- EMAIL -->
+    <div class="panel" role="tabpanel" id="p-email" aria-labelledby="t-email" hidden>
+      <div class="sub" role="group" aria-label="Email samples">
+        <button aria-pressed="true">Onboarding</button><button aria-pressed="false">Balance reminder</button><button aria-pressed="false">Campaign</button>
+      </div>
+      <div class="piece">
+<div class="doc">
+        <dl class="meta"><dt>Subject</dt><dd>Your eSIM is ready. Setup takes 2 minutes.</dd><dt>Preheader</dt><dd>Do it now on Wi-Fi, and you'll land connected.</dd></dl>
+        <h4>Hi Lena, you're almost ready to go.</h4>
+        <p>Your eSIM is waiting in the app. Install it while you're still at home on Wi-Fi, and your phone will connect the moment you land.</p>
+        <ol>
+          <li>Open the app and tap <b>Install eSIM</b></li>
+          <li>Follow the prompts from your phone</li>
+          <li>Turn on the eSIM and data roaming when you arrive</li>
+        </ol>
+        <span class="mailbtn">Install my eSIM</span>
+        <p>Stuck on a step? Our setup guides for <a href="#samples">iPhone</a> and <a href="#samples">Android</a> walk you through it with screenshots.</p>
+        <p>Safe travels,<br>The Roamless team</p>
+      </div>
+      <aside class="notes">
+        <div class="n"><b>Subject line</b>Promises the reward and removes the fear of effort in one line.</div>
+        <div class="n"><b>Timing</b>"While you're on Wi-Fi" gives a reason to act now, not at the airport.</div>
+        <div class="n"><b>One action</b>Single button. Help links sit below for people who need them.</div>
+      </aside>
+      </div>
+      <div class="piece" hidden>
+<div class="doc">
+        <dl class="meta"><dt>Subject</dt><dd>You're running low on credit</dd><dt>Preheader</dt><dd>Top up in a few taps so you don't lose connection mid-trip.</dd></dl>
+        <h4>Keep your data on.</h4>
+        <p>Your balance is getting low. Top up now so maps, messages and bookings keep working wherever you are.</p>
+        <span class="mailbtn">Top up my balance</span>
+        <p><b>Tired of topping up?</b> Turn on auto top-up in the app and we'll add credit for you when your balance runs low. You can turn it off anytime.</p>
+        <p class="small">You're receiving this because balance alerts are on for your account. Manage notifications in the app.</p>
+      </div>
+      <aside class="notes">
+        <div class="n"><b>Concrete stakes</b>Maps, messages, bookings: the things a traveller is afraid to lose.</div>
+        <div class="n"><b>Upsell, gently</b>Auto top-up is offered as relief, with the opt-out stated plainly.</div>
+        <div class="n"><b>Transactional</b>No promo noise. Reminder emails that look like ads get ignored.</div>
+      </aside>
+      </div>
+      <div class="piece" hidden>
+<div class="doc">
+        <dl class="meta"><dt>Subject</dt><dd>The Eid edit has landed</dd><dt>Preheader</dt><dd>Festive looks for every guest list, delivered in time.</dd></dl>
+        <h4>Dress for the table, the photos and the visits after.</h4>
+        <p>Flowing abayas, soft satin sets and modest dresses in this season's jewel tones. Everything you need for three days of celebrating, chosen by our stylists.</p>
+        <span class="mailbtn">Shop the Eid edit</span>
+        <p><b>Order by the 14th</b> for delivery before Eid. Free returns if it isn't quite right.</p>
+      </div>
+      <aside class="notes">
+        <div class="n"><b>Real moments</b>Speaks to how the holiday is spent, not to product categories.</div>
+        <div class="n"><b>Deadline</b>Delivery cut-off answers the first question shoppers have.</div>
+        <div class="n"><b>Multi-market</b>Written to localise cleanly into other languages and markets.</div>
+      </aside>
+      </div>
+    </div>
+
+    <!-- UX -->
+    <div class="panel" role="tabpanel" id="p-ux" aria-labelledby="t-ux" hidden>
+      <div class="piece">
+        <div class="doc">
+          <dl class="meta"><dt>Type</dt><dd>In-app messages &amp; microcopy</dd><dt>Goal</dt><dd>Clear, calm, human interface text</dd></dl>
+          <div class="ba">
+            <div class="ba-h"><span class="label">Before</span><span class="label">After</span></div>
+            <div class="ba-r"><span class="ctx">Payment error</span><s>Error 402: Transaction failed.</s><p>Your payment didn't go through. Check your card details or try another payment method.</p></div>
+            <div class="ba-r"><span class="ctx">Empty state</span><s>No data.</s><p>No trips yet. Add your first destination to see local rates.</p></div>
+            <div class="ba-r"><span class="ctx">Button</span><s>Submit</s><p>Install eSIM</p></div>
+            <div class="ba-r"><span class="ctx">Permission ask</span><s>Allow notifications?</s><p>Want an alert when your balance runs low? We'll only message you about your trips and account.</p></div>
+            <div class="ba-r"><span class="ctx">Confirmation</span><s>Operation successful.</s><p>Top-up complete. €10 has been added to your balance.</p></div>
+            <div class="ba-r"><span class="ctx">In-app banner</span><s>Update your app for new features.</s><p>New: see data rates for your next destination before you book. Update to try it.</p></div>
+          </div>
+        </div>
+        <aside class="notes">
+          <div class="n"><b>Say what happened</b>Errors explain the problem and the fix, without codes or blame.</div>
+          <div class="n"><b>Buttons are verbs</b>A button says exactly what it does, so nobody has to guess.</div>
+          <div class="n"><b>Earn the yes</b>Permission requests explain the benefit first. Opt-in rates follow.</div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- HELP -->
+    <div class="panel" role="tabpanel" id="p-help" aria-labelledby="t-help" hidden>
+      <div class="piece">
+<div class="doc">
+        <dl class="meta"><dt>Type</dt><dd>Help center article</dd><dt>Reader</dt><dd>A traveller deciding how to pay for data</dd></dl>
+        <h4>How does pay-as-you-go work?</h4>
+        <p>With pay-as-you-go, you only pay for the data you use. Add credit to your balance, and data is charged at the rate of the country you're in.</p>
+        <div class="tip"><b>Good to know:</b> rates are different in each destination. Check the rate for your next trip in the app before you fly.</div>
+        <p><b>When pay-as-you-go makes sense</b></p>
+        <ul>
+          <li>You're visiting several countries on one trip</li>
+          <li>You mostly use maps and messaging, not video</li>
+          <li>You don't know yet how much data you'll need</li>
+        </ul>
+        <p>If you'd rather know your costs upfront, a data plan may suit you better. <a href="#samples">Compare pay-as-you-go and data plans</a></p>
+        <p class="small">Was this article helpful? Yes · No</p>
+      </div>
+      <aside class="notes">
+        <div class="n"><b>Answer first</b>The first sentence answers the title. Readers who stop there still get it.</div>
+        <div class="n"><b>Scannable</b>Short list of situations so people can recognise themselves.</div>
+        <div class="n"><b>Next step</b>Ends with a link to the alternative instead of a dead end.</div>
+      </aside>
+      </div>
+    </div>
+
+    <!-- ADS -->
+    <div class="panel" role="tabpanel" id="p-ads" aria-labelledby="t-ads" hidden>
+      <div class="piece">
+        <div class="doc">
+          <dl class="meta"><dt>Type</dt><dd>Paid social ad set, 3 angles for A/B testing</dd><dt>Product</dt><dd>Travel eSIM app</dd></dl>
+          <div class="ads">
+            <div class="ad"><span class="spon">Sponsored · Angle: fear</span><p>Came home to a €200 roaming bill? Next time, take one eSIM that works across countries and shows every cent you spend.</p><div class="ad-img">€0 surprise bills</div><div class="ad-foot"><b>Roam without the bill shock</b><span>Install</span></div></div>
+            <div class="ad"><span class="spon">Sponsored · Angle: ease</span><p>Land, switch on, go. Set up your travel eSIM at home in a few minutes and skip the airport SIM queue.</p><div class="ad-img">Online at arrivals</div><div class="ad-foot"><b>Land connected</b><span>Install</span></div></div>
+            <div class="ad"><span class="spon">Sponsored · Angle: control</span><p>Only pay for the data you use. Top up from the app whenever you need, wherever you are.</p><div class="ad-img">Pay as you go</div><div class="ad-foot"><b>Your data, your budget</b><span>Install</span></div></div>
+          </div>
+        </div>
+        <aside class="notes">
+          <div class="n"><b>One idea each</b>Each ad tests a single motivation, so results show what actually moves people.</div>
+          <div class="n"><b>Hook first</b>The first line works alone, because that's often all people see in the feed.</div>
+          <div class="n"><b>Same promise</b>Every angle leads to the same landing page message, so the click feels consistent.</div>
+        </aside>
+      </div>
+    </div>
+
+    <p class="disclaimer">Samples are portfolio rewrites based on work I did for these brands. Names, dates, prices and figures are illustrative.</p>
+  </div>
+</section>
+
+<section class="block" id="experience">
+  <div class="side"><div class="label">Experience</div></div>
+  <div>
+    <h2 class="section-title">Where I've worked</h2>
+    <p class="intro">From running operations to leading a content team, I've seen how words affect every part of the customer journey.</p>
+    <div class="timeline">
+      <div class="role">
+        <h3>Content &amp; CRM Writer</h3>
+        <div class="where">Roamless · Travel eSIM</div>
+        <p>Wrote the help center, FAQs, lifecycle emails, push notifications and landing page copy for a global eSIM app used by travellers in many countries. Kept product, support and marketing language consistent.</p>
+      </div>
+      <div class="role">
+        <h3>Content Team Lead</h3>
+        <div class="where">Modanisa · Global e-commerce</div>
+        <p>Led the content team at one of the largest global modest-fashion e-commerce platforms. Owned campaign copy, mailing content, program pages and FAQ across multiple markets and languages, and grew from operations into content leadership.</p>
+        <div class="steps"><span>Back Office Manager</span><span>Content Team Lead</span></div>
+      </div>
+      <div class="role">
+        <h3>Freelance Content Creator</h3>
+        <div class="where">Remote</div>
+        <p>Content marketing, SEO articles, video production and AI-assisted content workflows for brands and agencies.</p>
+      </div>
+      <div class="role">
+        <h3>BA, English Language &amp; Literature</h3>
+        <div class="where">Kocaeli University</div>
+        <p>Literature and creative writing are where it started. They still shape how I think about voice, rhythm and audience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="skills">
+  <div class="side"><div class="label">What I do</div></div>
+  <div>
+    <h2 class="section-title">Capabilities</h2>
+    <div class="cols" style="margin-top:24px">
+      <div>
+        <h3>Writing</h3>
+        <ul><li>Copywriting &amp; campaign concepts</li><li>UX writing &amp; help centers</li><li>CRM: email, push &amp; in-app</li><li>Landing pages &amp; ad copy</li><li>SEO &amp; long-form content</li><li>Scripts for short-form video</li></ul>
+      </div>
+      <div>
+        <h3>Strategy</h3>
+        <ul><li>Content strategy &amp; calendars</li><li>Brand voice &amp; tone guides</li><li>Multi-market localisation</li><li>Team leadership &amp; briefing</li><li>Editing and quality review</li></ul>
+      </div>
+      <div>
+        <h3>Tools</h3>
+        <ul><li>AI writing &amp; research tools</li><li>Canva &amp; video editing</li><li>Email &amp; CRM platforms</li><li>Help center platforms</li><li>CMS &amp; e-commerce back office</li></ul>
+      </div>
+    </div>
+    <ol class="process">
+      <li><b>Listen</b>Learn the product, the audience and what's going wrong today.</li>
+      <li><b>Draft</b>Write fast, in the brand's voice, with the reader's question in mind.</li>
+      <li><b>Cut</b>Remove everything that doesn't help the reader act or understand.</li>
+      <li><b>Measure</b>Check open rates, ticket volume and feedback, then revise.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="block" id="writing">
+  <div class="side"><div class="label">Creative writing</div></div>
+  <div>
+    <h2 class="section-title">Published books</h2>
+    <p class="intro">Outside of brand work I write fiction and poetry. Three books published in Turkish, and an English-language novel in progress.</p>
+    <div class="books">
+      <div class="book"><span class="label">Poetry</span><h3>Nevirdaim</h3><p>A poetry collection.</p></div>
+      <div class="book"><span class="label">Novella · 2024</span><h3>Makber</h3><p>A man's journey back to his daughter after death.</p></div>
+      <div class="book"><span class="label">Short stories</span><h3>Elimin Değdiği Yerler</h3><p>A collection of short stories.</p></div>
+    </div>
+    <div class="extras">
+      <a href="https://medium.com/@gokaycelebi" target="_blank" rel="noopener">Essays, poems &amp; stories on Medium ↗</a>
+      <a href="https://www.tiktok.com/@gray_cap" target="_blank" rel="noopener">Short-form video on TikTok ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="label" style="margin-bottom:16px">Contact</div>
+  <h2>Need words that do the work? Let's talk.</h2>
+  <div class="rows">
+    <div class="crow"><span id="c-mail">gokaycelebi@gmail.com</span><button class="copy" data-copy="c-mail">Copy</button></div>
+    <div class="crow"><span id="c-phone">+49 176 648 07286</span><button class="copy" data-copy="c-phone">Copy</button></div>
+  </div>
+</section>
+
+<footer>© 2026 Gökay Çelebi · Hamburg</footer>
+</div>
+
+<script>
+(function(){
+  const tabs=[...document.querySelectorAll('.tab')];
+  function show(id){
+    tabs.forEach(t=>{const on=t.id==='t-'+id;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;document.getElementById(t.getAttribute('aria-controls')).hidden=!on;});
+  }
+  tabs.forEach((t,i)=>{
+    t.addEventListener('click',()=>show(t.id.slice(2)));
+    t.addEventListener('keydown',e=>{
+      if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;
+      const n=tabs[(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length];n.focus();show(n.id.slice(2));
+    });
+  });
+  document.querySelectorAll('.sub').forEach(g=>{
+    const btns=[...g.querySelectorAll('button')];const pieces=[...g.parentElement.querySelectorAll(':scope > .piece')];
+    btns.forEach((b,i)=>b.addEventListener('click',()=>{btns.forEach((x,j)=>x.setAttribute('aria-pressed',i===j));pieces.forEach((p,j)=>p.hidden=i!==j);}));
+  });
+  document.querySelectorAll('.lock').forEach(l=>{
+    const ts=[...l.querySelectorAll('.nt')].map(e=>e.textContent.length),bs=[...l.querySelectorAll('.nb')].map(e=>e.textContent.length);
+    const out=l.parentElement.querySelector('.counts');
+    if(out)out.textContent='Titles '+Math.max(...ts)+' characters max · Bodies '+Math.max(...bs)+' characters max';
+  });
+  document.querySelectorAll('[data-tab]').forEach(a=>a.addEventListener('click',()=>show(a.dataset.tab)));
+  document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{
+    const el=document.getElementById(b.dataset.copy);const txt=el.textContent;
+    const ok=()=>{b.textContent='Copied';b.classList.add('done');setTimeout(()=>{b.textContent='Copy';b.classList.remove('done')},1600)};
+    const sel=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected';};
+    try{navigator.clipboard.writeText(txt).then(ok,sel)}catch(e){sel()}
+  }));
+})();
+</script>
+
+</body>
+</html>
